@@ -1,0 +1,41 @@
+/*
+ * Copyright © 2025 Devin B. Royal.
+ * All Rights Reserved.
+ */
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.devinroyal'
+version = '1.0.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+application {
+    mainClass = 'netconfig.Main'
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'netconfig.Main'
+        )
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    // Include PACBridge.js in the final JAR
+    from('src/netconfig/proxy/resources') {
+        into 'netconfig/proxy/resources'
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

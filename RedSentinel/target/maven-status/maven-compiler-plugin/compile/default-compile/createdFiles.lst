@@ -1,0 +1,7 @@
+com/redsentinel/lab/LogEraserStub.class
+com/redsentinel/lab/PrivilegeEscalationSimulator.class
+com/redsentinel/lab/FirewallEvasionSimulator.class
+com/redsentinel/lab/PersistenceManager.class
+com/redsentinel/lab/ReconModule.class
+com/redsentinel/lab/C2CommandHandler.class
+com/redsentinel/lab/RedSentinelLauncher.class

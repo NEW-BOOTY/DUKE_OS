@@ -1,0 +1,35 @@
+/*
+ * Copyright © 2025 Devin B. Royal.
+ * All Rights Reserved.
+ */
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.redsentinel'
+version = '1.0.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+application {
+    mainClass = 'com.redsentinel.lab.RedSentinelLauncher'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // No external dependencies currently
+    // You may add testing or crypto libs here
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
