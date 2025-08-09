@@ -1,0 +1,6 @@
+stripe:
+  secret-key: YOUR_STRIPE_SECRET_KEY
+  webhook:
+    secret: YOUR_WEBHOOK_SECRET
+  success-url: http://localhost:3000/success
+  cancel-url: http://localhost:3000/cancel

@@ -1,0 +1,26 @@
+java1kind/
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/java1kind/
+│   │   │   │   ├── config/
+│   │   │   │   ├── controller/
+│   │   │   │   ├── service/
+│   │   │   │   ├── model/
+│   │   │   │   ├── security/
+│   │   │   │   └── Java1KindApplication.java
+│   │   │   └── resources/
+│   │   │       └── application.yml
+│   └── pom.xml
+├── frontend/
+│   ├── public/
+│   ├── pages/
+│   ├── components/
+│   ├── styles/
+│   └── next.config.js
+├── database/
+│   └── schema.sql
+├── deploy/
+│   ├── docker-compose.yml
+│   └── nginx.conf
+└── README.md
