@@ -1,0 +1,17 @@
+{
+  "teamId": "ABCDE12345",
+  "keyId": "XYZ789GHI6",
+  "bundleId": "com.devinroyal.mdm",
+  "apnsKeyPath": "resources/AuthKey_XYZ789GHI6.p8",
+  "apnsTopic": "com.devinroyal.mdm",
+  "testDeviceToken": "8f3e5c62e7d02a...",
+  "keystorePassword": "changeit"
+}
+
+
+// 🔐 Replace:
+// teamId: With your Apple Developer Team ID.
+// keyId: With your APNs AuthKey identifier (from .p8 file).
+// apnsKeyPath: Ensure path is valid and file exists.
+// testDeviceToken: Any valid Apple device token.
+// keystorePassword: Password for mdm_identity.p12 (if used in future TLS channel).

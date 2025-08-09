@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mdm-config-map
+data:
+  auth.secret: |
+    YourSuperSecretJWTKey1234567890
+  mdm_config.json: |
+    {
+      "apns": {
+        "keyId": "ABC123",
+        "teamId": "XYZ456",
+        ...
+      }
+    }
+  fcm_server_key.txt: |
+    AAAAXYZyourRealFCMKeyHereZZZ==

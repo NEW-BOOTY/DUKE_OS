@@ -2,17 +2,39 @@
   Copyright © 2025 Devin B. Royal.
   All Rights Reserved.
 -->
+
 <!DOCTYPE html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Java 1 KIND – Secure Java Program Download Platform by Devin B. Royal" />
-    <title>Java 1 KIND – Programs by Devin B. Royal</title>
-  </head>
-  <body class="bg-royal text-light">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unified Device Manager Portal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0b0c10;
+      color: #66fcf1;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      margin: 1em;
+      padding: 1em 2em;
+      font-size: 1em;
+      background: #45a29e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f2833;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unified Device Manager</h1>
+  <p>Click to trigger device operations</p>
+  <button onclick="fetch('/mdm/push').then(r => r.json()).then(console.log)">Send APNs Push</button>
+  <button onclick="fetch('/fcm/test').then(r => r.json()).then(console.log)">Send FCM Push</button>
+</body>
 </html>
