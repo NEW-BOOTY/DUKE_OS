@@ -1,0 +1,65 @@
+/*
+ * Copyright © 2025 Devin B. Royal.
+ * All Rights Reserved.
+ *
+ * This script is invoked via Java ProcessBuilder bridge using Node.js.
+ * It processes quantum input and simulates QFT or other operations.
+ * Input is passed via stdin, and output is printed to stdout.
+ */
+
+const fs = require('fs');
+
+// Enable stdin
+let input = '';
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', chunk => input += chunk);
+process.stdin.on('end', () => {
+    try {
+        if (!input || input.trim().length === 0) {
+            throw new Error("No input received from Java process.");
+        }
+
+        // Parse input as JSON
+        const data = JSON.parse(input);
+
+        // Expecting { "state": [Array] }
+        if (!data.state || !Array.isArray(data.state)) {
+            throw new Error("Invalid input format. Expected { state: [Array] }.");
+        }
+
+        const result = simulateQuantumOperation(data.state);
+
+        // Output JSON result back to Java
+        process.stdout.write(JSON.stringify({
+            success: true,
+            inputState: data.state,
+            transformedState: result
+        }, null, 2));
+    } catch (err) {
+        process.stderr.write("QuantumJavaBackend ERROR: " + err.message + "\n");
+        process.stdout.write(JSON.stringify({ success: false, error: err.message }));
+    }
+});
+
+/**
+ * Simulates a quantum operation (e.g., simplified QFT).
+ * @param {number[]} stateVector
+ * @returns {number[]} transformed vector
+ */
+function simulateQuantumOperation(stateVector) {
+    const n = stateVector.length;
+    const output = new Array(n).fill(0);
+    const factor = 2 * Math.PI;
+
+    for (let k = 0; k < n; k++) {
+        let real = 0, imag = 0;
+        for (let j = 0; j < n; j++) {
+            const angle = (factor * j * k) / n;
+            real += stateVector[j] * Math.cos(angle);
+            imag += -stateVector[j] * Math.sin(angle);
+        }
+        output[k] = Math.sqrt(real * real + imag * imag); // magnitude
+    }
+
+    return output;
+}
