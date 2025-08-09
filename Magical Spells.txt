@@ -1,0 +1,259 @@
+// DevinScript Magical Spells Database
+// Variables
+var greeting = "Hello, World!"; // A greeting message
+var number = 42; // A numerical value
+
+// Functions
+function add(x, y) {
+    return x + y; // Adds two numbers together
+}
+
+// Control Flow
+if (number > 10) {
+    console.log("Big number!"); // Print if it's a big number
+} else {
+    console.log("Small number!"); // Otherwise, it's small
+}
+
+// Loops
+for (var count = 0; count < 5; count++) {
+    console.log("Counting: " + count); // Counting loop
+}
+
+// Magical Features
+function castSpell() {
+    console.log("Abracadabra!"); // Magic spell
+}
+
+// Integrations
+openWebsite("https://devinroyal.com"); // Open a website
+executePython("print('Hello from Python!')"); // Execute Python code
+
+// Copyright Notice
+console.log("Copyright ⓒ Devin B. Royal");
+
+// Create an array to store spells
+const magicalSpells = [
+    {
+        name: "Abracadabra",
+        description: "A basic magic spell that does... something mysterious.",
+        powerLevel: 5, // On a scale of 1 to 10
+    },
+    {
+        name: "Wingardium Leviosa",
+        description: "Lifts objects into the air (or makes them dance).",
+        powerLevel: 8,
+    },
+    {
+        name: "FizzBuzz",
+        description: "A spell that reveals prime numbers in a sequence.",
+        powerLevel: 3,
+    },
+    // Add more spells here!
+];
+
+// Accessing a spell
+const spellIndex = 1; // Choose an index
+const chosenSpell = magicalSpells[spellIndex];
+console.log(`Spell: ${chosenSpell.name}`);
+console.log(`Description: ${chosenSpell.description}`);
+console.log(`Power Level: ${chosenSpell.powerLevel}`);
+
+// Adding a new spell
+function addSpell(name, description, powerLevel) {
+    magicalSpells.push({ name, description, powerLevel });
+    console.log(`Added new spell: ${name}`);
+}
+
+// Usage example
+addSpell("Sudo Expelliarmus", "Gives you admin privileges (use with caution).", 10);
+
+// Run the main function
+main();
+
+try {
+    // Code that may throw an exception
+} catch (SpecificExceptionType e) {
+    // Handle this specific exception
+} catch (AnotherExceptionType e) {
+    // Handle another specific exception
+} catch (Exception e) {
+    // Handle any other exceptions (generic catch-all)
+}
+
+/**
+ * Reads data from a file.
+ *
+ * @param filePath The path to the file.
+ * @return The file content.
+ * @throws FileNotFoundException If the file does not exist.
+ * @throws IOException If an I/O error occurs.
+ */
+public String readFile(String filePath) throws FileNotFoundException, IOException {
+    // Implementation
+}
+
+// Dynamic Changes in Color, Shape, and Size
+function changeGraphics(color, shape, size) {
+    // Implementation to dynamically change graphics properties
+}
+
+// Error Handling
+function handleError(errorMessage) {
+    // Log error message
+    console.error(`Error: ${errorMessage}`);
+
+    // Change color, shape, or size to indicate error state
+    changeGraphics("red", "exclamation", "large");
+
+    // Display error message to the user
+    createInterface("popup");
+}
+
+// Unreal Engine 5 Integration
+function createActor(actorType, position, rotation) {
+    // Implementation to create an actor of specified type at given position and rotation
+}
+
+function loadLevel(levelName) {
+    // Implementation to load a level by its name
+}
+
+function handleInput() {
+    // Implementation to handle player input (e.g., keyboard, mouse, gamepad)
+}
+
+function simulatePhysics() {
+    // Implementation to control physics behavior, including collision detection, rigid body dynamics, and raycasting
+}
+
+function manageAssets() {
+    // Implementation to import, export, and manage game assets, such as meshes, textures, and materials
+}
+
+// Unity Integration
+function createGameObject(objectType, position, rotation) {
+    // Implementation to create a GameObject of specified type at given position and rotation
+}
+
+function loadScene(sceneName) {
+    // Implementation to load a scene by its name
+}
+
+function simulatePhysics() {
+    // Implementation to control physics behavior, including rigid body dynamics, colliders, and triggers
+}
+
+function manageResources() {
+    // Implementation to load, unload, and manage game assets, such as textures, models, and audio clips
+}
+
+// Godot Integration
+function loadScene(sceneName) {
+    // Implementation to load a scene by its name
+}
+
+function createNode(nodeType, position) {
+    // Implementation to create a node of specified type at given position
+}
+
+function simulatePhysics() {
+    // Implementation to control physics behavior, including rigid body dynamics, collisions, and raycasting
+}
+
+function manageResources() {
+    // Implementation to load, unload, and manage game resources, such as textures, scripts, and audio files
+}
+
+// UI Interaction Functions
+function switchToSphereMode() {
+    // Implement logic to transition from windowed mode to 3D sphere mode
+}
+
+function switchToWindowedMode() {
+    // Implement logic to transition from 3D sphere mode back to windowed mode
+}
+
+function displaySphere() {
+    // Implement logic to create and render a floating 3D sphere
+}
+
+function hideSphere() {
+    // Implement logic to remove the 3D sphere from the scene
+}
+
+function transitionToSphereMode() {
+    switchToSphereMode(); // Update UI to reflect mode change
+    hideWindow(); // Hide the windowed form
+    displaySphere(); // Display the 3D sphere
+}
+
+function transitionToWindowedMode() {
+    switchToWindowedMode(); // Update UI to reflect mode change
+    hideSphere(); // Hide the 3D sphere
+    displayWindow(); // Display the windowed form
+}
+
+function handleFreeRoamingInput() {
+    // Implement controls for moving around the 3D sphere
+}
+
+// Unreal Engine C++ Integration
+class ADevinScript : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    ADevinScript();
+
+protected:
+    virtual void BeginPlay() override;
+
+public:
+    virtual void Tick(float DeltaTime) override;
+
+private:
+    UPROPERTY(VisibleAnywhere)
+    UStaticMeshComponent* SphereComponent;
+
+    void OpenWebsite(const FString& URL);
+
+    void HandleFreeRoamingInput(float DeltaTime);
+};
+
+void ADevinScript::BeginPlay()
+{
+    Super::BeginPlay();
+    OpenWebsite(TEXT("https://devinroyal.com"));
+}
+
+void ADevinScript::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    HandleFreeRoamingInput(DeltaTime);
+}
+
+void ADevinScript::OpenWebsite(const FString& URL)
+{
+    FPlatformProcess::LaunchURL(*URL, nullptr, nullptr);
+}
+
+void ADevinScript::HandleFreeRoamingInput(float DeltaTime)
+{
+    const float Speed = 100.0f;
+    FVector NewLocation = GetActorLocation();
+    if (APlayerController* PC = GetWorld()->GetFirstPlayerController())
+    {
+        float MoveRight, MoveForward;
+        PC->GetInputAxisValue(TEXT("MoveForward"), MoveForward);
+        PC->GetInputAxisValue(TEXT("MoveRight"), MoveRight);
+        NewLocation += GetActorForwardVector() * MoveForward * Speed * DeltaTime;
+        NewLocation += GetActorRightVector() * MoveRight * Speed * DeltaTime;
+        SetActorLocation(NewLocation);
+    }
+}
+
+// Three.js Implementation for 3D Rendering and Animation
+// Include reference to external 3D rendering libraries for GPT functionality
+// Add functionality for uploading 2 billion+ images, videos, or both
+

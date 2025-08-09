@@ -1,0 +1,99 @@
+<!--
+  Copyright © 2025 Devin B. Royal.
+  All Rights Reserved.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.myndforge.ai</groupId>
+  <artifactId>scalable-ai-api</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>Scalable AI API</name>
+  <description>Scalable AI WebSocket + Image Classification API</description>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <main.class>com.myndforge.ai.ScalableAiApi</main.class>
+  </properties>
+
+  <dependencies>
+    <!-- DJL API & TensorFlow -->
+    <dependency>
+      <groupId>ai.djl</groupId>
+      <artifactId>api</artifactId>
+      <version>0.26.0</version>
+    </dependency>
+    <dependency>
+      <groupId>ai.djl.tensorflow</groupId>
+      <artifactId>tensorflow-engine</artifactId>
+      <version>0.26.0</version>
+    </dependency>
+    <dependency>
+      <groupId>ai.djl.tensorflow</groupId>
+      <artifactId>tensorflow-model-zoo</artifactId>
+      <version>0.26.0</version>
+    </dependency>
+    <dependency>
+      <groupId>ai.djl.tensorflow</groupId>
+      <artifactId>tensorflow-native-cpu</artifactId>
+      <version>2.7.0</version>
+      <classifier>osx-x86_64</classifier> <!-- Change to osx-aarch64 for M1/M2 -->
+    </dependency>
+
+    <!-- Web Server -->
+    <dependency>
+      <groupId>io.javalin</groupId>
+      <artifactId>javalin</artifactId>
+      <version>6.1.3</version>
+    </dependency>
+
+    <!-- Logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Compiler -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+      </plugin>
+
+      <!-- Build executable fat jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>${main.class}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals><goal>single</goal></goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

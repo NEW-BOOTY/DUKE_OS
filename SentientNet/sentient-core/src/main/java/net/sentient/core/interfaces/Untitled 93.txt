@@ -1,0 +1,38 @@
+/*
+ * Copyright © 2024 Devin B. Royal.
+ * All Rights Reserved.
+ */
+
+package com.devinroyal.cybershield;
+
+import com.devinroyal.cybershield.cli.CLIModule;
+import com.devinroyal.cybershield.web.WebAppModule;
+
+public class Main {
+    public static void main(String[] args) {
+        boolean isCLI = false;
+        boolean isWeb = false;
+
+        for (String arg : args) {
+            if ("--cli".equalsIgnoreCase(arg)) {
+                isCLI = true;
+            } else if ("--web".equalsIgnoreCase(arg)) {
+                isWeb = true;
+            }
+        }
+
+        if (!isCLI && !isWeb) {
+            if (System.console() != null) {
+                isCLI = true;
+            } else {
+                isWeb = true;
+            }
+        }
+
+        if (isCLI) {
+            CLIModule.launch();
+        } else {
+            WebAppModule.launch();
+        }
+    }
+} 

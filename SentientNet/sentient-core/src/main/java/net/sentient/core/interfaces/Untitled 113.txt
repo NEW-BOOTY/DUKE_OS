@@ -1,0 +1,36 @@
+/phc-interpreter/
+├── src/
+│   ├── core/
+│   │   ├── SpectralPrime.java
+│   │   ├── PrimeOperator.java
+│   │   ├── PrimeField.java
+│   │   └── PhiLattice.java
+│   ├── engine/
+│   │   ├── PHCInterpreter.java
+│   │   ├── SymbolicParser.java
+│   │   └── ExpressionNode.java
+│   ├── logic/
+│   │   ├── PHCLogicEvaluator.java
+│   │   └── Proposition.java
+│   └── util/
+│       ├── ComplexUtils.java
+│       └── Logger.java
+└── Main.java
+
+
+/*
+ * Copyright © 2024 Devin B. Royal.
+ * All Rights Reserved.
+ */
+
+
+/PHC-PrimeHarmonicsCalculus
+├── /src
+│   ├── /core
+│   │   ├── PrimeField.java
+│   │   ├── PHCInterpreter.java
+│   ├── /logic
+│   │   └── OmegaZeroLocator.java
+│   ├── /visual
+│   │   └── OmegaSurface.java
+│   └── PHCLauncher.java

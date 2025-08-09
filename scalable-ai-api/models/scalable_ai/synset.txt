@@ -1,0 +1,10 @@
+cat
+dog
+person
+car
+bicycle
+tree
+airplane
+keyboard
+cellphone
+book

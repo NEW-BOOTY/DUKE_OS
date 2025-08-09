@@ -1,0 +1,653 @@
+Glossary terms from module 2
+Terms and definitions from Course 4, Module 2
+
+Application: A program that performs a specific task
+
+Bash: The default shell in most Linux distributions
+
+CentOS: An open-source distribution that is closely related to Red Hat
+
+Central Processing Unit (CPU): A computer’s main processor, which is used to perform general computing tasks on a computer
+
+Command: An instruction telling the computer to do something
+
+Digital forensics: The practice of collecting and analyzing data to determine what has happened after an attack
+
+Directory: A file that organizes where other files are stored
+
+Distributions: The different versions of Linux
+
+File path: The location of a file or directory
+
+Filesystem Hierarchy Standard (FHS): The component of the Linux OS that organizes data
+
+Graphical user interface (GUI): A user interface that uses icons on the screen to manage different tasks on the computer
+
+Hard drive: A hardware component used for long-term memory
+
+Hardware: The physical components of a computer
+
+Internal hardware: The components required to run the computer
+
+Kali Linux ™: An open-source distribution of Linux that is widely used in the security industry
+
+Kernel: The component of the Linux OS that manages processes and memory
+
+Linux: An open source operating system
+
+Package: A piece of software that can be combined with other packages to form an application
+
+Package manager: A tool that helps users install, manage, and remove packages or applications
+
+Parrot: An open-source distribution that is commonly used for security
+
+Penetration test (pen test): A simulated attack that helps identify vulnerabilities in systems, networks, websites, applications, and processes
+
+Peripheral devices: Hardware components that are attached and controlled by the computer system
+
+Random Access Memory (RAM): A hardware component used for short-term memory
+
+Red Hat® Enterprise Linux® (also referred to simply as Red Hat in this course): A subscription-based distribution of Linux built for enterprise use
+
+Shell: The command-line interpreter 
+
+Standard error: An error message returned by the OS through the shell
+
+Standard input: Information received by the OS via the command line
+
+Standard output: Information returned by the OS through the shell
+
+String data: Data consisting of an ordered sequence of characters
+
+Ubuntu: An open-source, user-friendly distribution that is widely used in security and other industries
+
+User: The person interacting with a computer.
+
+
+Filter content in Linux
+
+In this reading, you’ll continue exploring Linux commands, which can help you filter for the information you need. You’ll learn a new Linux command, find, which can help you search files and directories for specific information.
+Filtering for information
+
+You previously explored how filtering for information is an important skill for security analysts. Filtering is selecting data that match a certain condition. For example, if you had a virus in your system that only affected the .txt files, you could use filtering to find these files quickly. Filtering allows you to search based on specific criteria, such as file extension or a string of text.
+grep
+
+The grep command searches a specified file and returns all lines in the file containing a specified string or text. The grep command commonly takes two arguments: a specific string to search for and a specific file to search through.
+
+For example, entering grep OS updates.txt returns all lines containing OS in the updates.txt file. In this example, OS is the specific string to search for, and updates.txt is the specific file to search through.
+
+Let’s look at another example: grep error time_logs.txt. Here grep is used to search for the text pattern. error is the term you are looking for in the time_logs.txt file. When you run this command, grep will scan the time_logs.txt file and print only the lines containing the word error.
+Piping
+
+The pipe command is accessed using the pipe character (|). Piping sends the standard output of one command as standard input to another command for further processing. As a reminder, standard output is information returned by the OS through the shell, and standard input is information received by the OS via the command line. 
+
+The pipe character (|) is located in various places on a keyboard. On many keyboards, it’s located on the same key as the backslash character (\). On some keyboards, the | can look different and have a small space through the middle of the line. If you can’t find the |, search online for its location on your particular keyboard. 
+
+When used with grep, the pipe can help you find directories and files containing a specific word in their names. For example, ls /home/analyst/reports | grep users returns the file and directory names in the reports directory that contain users. Before the pipe, ls indicates to list the names of the files and directories in reports. Then, it sends this output to the command after the pipe. In this case, grep users returns all of the file or directory names containing users from the input it received.
+
+Note: Piping is a general form of redirection in Linux and can be used for multiple tasks other than filtering. You can think of piping as a general tool that you can use whenever you want the output of one command to become the input of another command.
+find
+
+The find command searches for directories and files that meet specified criteria. There’s a wide range of criteria that can be specified with find. For example, you can search for files and directories that
+
+    Contain a specific string in the name,
+
+    Are a certain file size, or
+
+    Were last modified within a certain time frame.
+
+When using find, the first argument after find indicates where to start searching. For example, entering find /home/analyst/projects searches for everything starting at the projects directory. 
+
+After this first argument, you need to indicate your criteria for the search. If you don’t include a specific search criteria with your second argument, your search will likely return a lot of directories and files. 
+
+Specifying criteria involves options. Options modify the behavior of a command and commonly begin with a hyphen (-). 
+-name and -iname
+
+One key criteria analysts might use with find is to find file or directory names that contain a specific string. The specific string you’re searching for must be entered in quotes after the -name or -iname options. The difference between these two options is that -name is case-sensitive, and -iname is not. 
+
+For example, you might want to find all files in the projects directory that contain the word “log” in the file name. To do this, you’d enter find /home/analyst/projects -name "*log*". You could also enter find /home/analyst/projects -iname "*log*".
+
+In these examples, the output would be all files in the projects directory that contain log surrounded by zero or more characters. The "*log*" portion of the command is the search criteria that indicates to search for the string “log”. When -name is the option, files with names that include Log or LOG, for example, wouldn’t be returned because this option is case-sensitive. However, they would be returned when -iname is the option.
+
+Note: An asterisk (*) is used as a wildcard to represent zero or more unknown characters.
+-mtime
+
+Security analysts might also use find to find files or directories last modified within a certain time frame. The -mtime option can be used for this search. For example, entering find /home/analyst/projects -mtime -3 returns all files and directories in the projects directory that have been modified within the past three days. 
+
+The -mtime option search is based on days, so entering -mtime +1 indicates all files or directories last modified more than one day ago, and entering -mtime -1 indicates all files or directories last modified less than one day ago. 
+
+Note: The option -mmin can be used instead of -mtime if you want to base the search on minutes rather than days.
+Key takeaways
+
+Filtering for information using Linux commands is an important skill for security analysts so that they can customize data to fit their needs. Three key Linux commands for this are grep, piping (|), and find. These commands can be used to navigate and filter for information in the file system.
+
+    Consider the privacy and security implications of using AI. Consider how using AI tools may affect the security of other people or organizations.
+    
+
+Manage directories and files
+
+Previously, you explored how to manage the file system using Linux commands. The following commands were introduced: mkdir, rmdir, touch, rm, mv, and cp. In this reading, you’ll review these commands, the nano text editor, and learn another way to write to files.
+Creating and modifying directories
+mkdir
+
+The mkdir command creates a new directory. Like all of the commands presented in this reading, you can either provide the new directory as the absolute file path, which starts from the root, or as a relative file path, which starts from your current directory.
+
+For example, if you want to create a new directory called network in your /home/analyst/logs directory, you can enter mkdir /home/analyst/logs/network to create this new directory. If you’re already in the /home/analyst/logs directory, you can also create this new directory by entering mkdir network.
+
+Pro Tip: You can use the ls command to confirm the new directory was added.
+rmdir
+
+The rmdir command removes, or deletes, a directory. For example, entering rmdir /home/analyst/logs/network would remove this empty directory from the file system.
+
+Note: The rmdir command cannot delete directories with files or subdirectories inside. For example, entering rmdir /home/analyst returns an error message. 
+Creating and modifying files
+touch and rm
+
+The touch command creates a new file. This file won’t have any content inside. If your current directory is /home/analyst/reports, entering touch permissions.txt creates a new file in the reports subdirectory called permissions.txt.
+
+The rm command removes, or deletes, a file. This command should be used carefully because it’s not easy to recover files deleted with rm. To remove the permissions file you just created, enter rm permissions.txt. 
+
+Pro Tip: You can verify that permissions.txt was successfully created or removed by entering ls.
+mv and cp
+
+You can also use mv and cp when working with files. The mv command moves a file or directory to a new location, and the cp command copies a file or directory into a new location. The first argument after mv or cp is the file or directory you want to move or copy, and the second argument is the location you want to move or copy it to.
+
+To move permissions.txt into the logs subdirectory, enter mv permissions.txt /home/analyst/logs. Moving a file removes the file from its original location. However, copying a file doesn’t remove it from its original location. To copy permissions.txt into the logs subdirectory while also keeping it in its original location, enter cp permissions.txt /home/analyst/logs.
+
+Note: The mv command can also be used to rename files. To rename a file, pass the new name in as the second argument instead of the new location. For example, entering mv permissions.txt perm.txt renames the permissions.txt file to perm.txt.
+nano text editor
+
+nano is a command-line file editor that is available by default in many Linux distributions. Many beginners find it easy to use, and it’s widely used in the security profession. You can perform multiple basic tasks in nano, such as creating new files and modifying file contents. 
+
+To open an existing file in nano from the directory that contains it, enter nano followed by the file name. For example, entering nano permissions.txt from the /home/analyst/reports directory opens a new nano editing window with the permissions.txt file open for editing. You can also provide the absolute file path to the file if you’re not in the directory that contains it.
+
+You can also create a new file in nano by entering nano followed by a new file name. For example, entering nano authorized_users.txt from the /home/analyst/reports directory creates the authorized_users.txt file within that directory and opens it in a new nano editing window.
+
+Since there isn't an auto-saving feature in nano, it’s important to save your work before exiting. To save a file in nano, use the keyboard shortcut Ctrl + O. You’ll be prompted to confirm the file name before saving. To exit out of nano, use the keyboard shortcut Ctrl + X.
+
+Note: Vim and Emacs are also popular command-line text editors.
+Standard output redirection
+
+There’s an additional way you can write to files. Previously, you learned about standard input and standard output. Standard input is information received by the OS via the command line, and standard output is information returned by the OS through the shell.
+
+You’ve also learned about piping. Piping sends the standard output of one command as standard input to another command for further processing. It uses the pipe character (|). 
+
+In addition to the pipe (|), you can also use the right angle bracket (>) and double right angle bracket (>>) operators to redirect standard output.
+
+When used with echo, the > and >> operators can be used to send the output of echo to a specified file rather than the screen. The difference between the two is that > overwrites your existing file, and >> adds your content to the end of the existing file instead of overwriting it. The > operator should be used carefully, because it’s not easy to recover overwritten files.
+
+When you’re inside the directory containing the permissions.txt file, entering echo "last updated date" >> permissions.txt adds the string “last updated date” to the file contents. Entering echo "time" > permissions.txt after this command overwrites the entire file contents of permissions.txt with the string “time”.
+
+Note: Both the > and >> operators will create a new file if one doesn’t already exist with your specified name.
+Key takeaways
+
+Knowing how to manage the file system in Linux is an important skill for security analysts. Useful commands for this include: mkdir, rmdir, touch, rm, mv, and cp. When security analysts need to write to files, they can use the nano text editor, or the > and >> operators.
+
+
+
+Permission commands
+
+Previously, you explored file permissions and the commands that you can use to display and change them.  In this reading, you’ll review these concepts and also focus on an example of how these commands work together when putting the principle of least privilege into practice.
+Reading permissions
+
+In Linux, permissions are represented with a 10-character string. Permissions include:
+
+    read: for files, this is the ability to read the file contents; for directories, this is the ability to read all contents in the directory including both files and subdirectories
+
+    write: for files, this is the ability to make modifications on the file contents; for directories, this is the ability to create new files in the directory
+
+    execute: for files, this is the ability to execute the file if it’s a program; for directories, this is the ability to enter the directory and access its files
+
+These permissions are given to these types of owners:
+
+    user: the owner of the file
+
+    group: a larger group that the owner is a part of
+
+    other: all other users on the system
+
+Each character in the 10-character string conveys different information about these permissions. The following table describes the purpose of each character:
+
+Character
+	
+
+Example
+	
+
+Meaning
+
+1st
+	
+
+drwxrwxrwx
+	
+
+file type
+
+    d for directory
+
+    - for a regular file
+
+2nd
+	
+
+drwxrwxrwx
+	
+
+read permissions for the user
+
+    r if the user has read permissions
+
+    - if the user lacks read permissions
+
+3rd
+	
+
+drwxrwxrwx
+	
+
+write permissions for the user
+
+    w if the user has write permissions
+
+    - if the user lacks write permissions
+
+4th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for the user
+
+    x if the user has execute permissions
+
+    - if the user lacks execute permissions
+
+5th
+	
+
+drwxrwxrwx
+	
+
+read permissions for the group
+
+    r if the group has read permissions
+
+    - if the group lacks read permissions
+
+6th
+	
+
+drwxrwxrwx
+	
+
+write permissions for the group
+
+    w if the group has write permissions
+
+    - if the group lacks write permissions
+
+7th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for the group
+
+    x if the group has execute permissions
+
+    - if the group lacks execute permissions
+
+8th
+	
+
+drwxrwxrwx
+	
+
+read permissions for other
+
+    r if the other owner type has read permissions
+
+    - if the other owner type lacks read permissions
+
+9th
+	
+
+drwxrwxrwx
+	
+
+write permissions for other
+
+    w if the other owner type has write permissions
+
+    - if the other owner type lacks write permissions
+
+10th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for other
+
+    x if the other owner type has execute permissions
+
+    - if the other owner type lacks execute permissions
+
+Exploring existing permissions
+
+You can use the ls command to investigate who has permissions on files and directories. Previously, you learned that ls displays the names of files in directories in the current working directory.
+
+There are additional options you can add to the ls command to make your command more specific. Some of these options provide details about permissions. Here are a few important ls options for security analysts:
+
+    ls -a: Displays hidden files. Hidden files start with a period (.) at the beginning.
+
+    ls -l: Displays permissions to files and directories. Also displays other additional information, including owner name, group, file size, and the time of last modification.
+
+    ls -la: Displays permissions to files and directories, including hidden files. This is a combination of the other two options.
+
+Changing permissions
+
+The principle of least privilege is the concept of granting only the minimal access and authorization required to complete a task or function. In other words, users should not have privileges that are beyond what is necessary. Not following the principle of least privilege can create security risks.
+
+The chmod  command can help you manage this authorization. The chmod command changes permissions on files and directories.
+Using chmod
+
+The chmod command requires two arguments. The first argument indicates how to change permissions, and the second argument indicates the file or directory that you want to change permissions for.  For example, the following command would add all permissions to login_sessions.txt:
+
+chmod u+rwx,g+rwx,o+rwx login_sessions.txt
+
+If you wanted to take all the permissions away, you could use
+
+chmod u-rwx,g-rwx,o-rwx login_sessions.txt
+
+Another way to assign these permissions is to use the equals sign (=) in this first argument. Using = with chmod sets, or assigns, the permissions exactly as specified. For example, the following command would set read permissions for login_sessions.txt for user, group, and other:
+
+chmod u=r,g=r,o=r login_sessions.txt
+
+This command overwrites existing permissions. For instance, if the user previously had write permissions, these write permissions are removed after you specify only read permissions with =. 
+
+The following table reviews how each character is used within the first argument of chmod:
+
+Character
+	
+
+Description
+
+u
+	
+
+indicates changes will be made to user permissions
+
+g
+	
+
+indicates changes will be made to group permissions
+
+o
+	
+
+indicates changes will be made to other permissions
+
++
+	
+
+adds permissions to the user, group, or other
+
+-
+	
+
+removes permissions from the user, group, or other
+
+=
+	
+
+assigns permissions for the user, group, or other
+
+Note: When there are permission changes to more than one owner type, commas are needed to separate changes for each owner type. You should not add spaces after those commas.
+The principle of least privilege in action
+
+As a security analyst, you may encounter a situation like this one: There’s a file called bonuses.txt within a compensation directory. The owner of this file is a member of the Human Resources department with a username of hrrep1. It has been decided that hrrep1 needs access to this file. But, since this file contains confidential information, no one else in the hr group needs access.
+
+You run ls -l to check the permissions of files in the compensation directory and discover that the permissions for bonuses.txt are -rw-rw----. The group owner type has read and write permissions that do not align with the principle of least privilege.  
+
+To remedy the situation, you input chmod g-rw bonuses.txt. Now, only the user who needs to access this file to carry out their job responsibilities can access this file.
+Key takeaways
+
+Managing directory and file permissions may be a part of your work as a security analyst. Using ls with the -l and -la options allows you to investigate directory and file permissions. Using chmod allows you to change user permissions and ensure they are aligned with the principle of least privilege.
+
+
+Permission commands
+
+Previously, you explored file permissions and the commands that you can use to display and change them.  In this reading, you’ll review these concepts and also focus on an example of how these commands work together when putting the principle of least privilege into practice.
+Reading permissions
+
+In Linux, permissions are represented with a 10-character string. Permissions include:
+
+    read: for files, this is the ability to read the file contents; for directories, this is the ability to read all contents in the directory including both files and subdirectories
+
+    write: for files, this is the ability to make modifications on the file contents; for directories, this is the ability to create new files in the directory
+
+    execute: for files, this is the ability to execute the file if it’s a program; for directories, this is the ability to enter the directory and access its files
+
+These permissions are given to these types of owners:
+
+    user: the owner of the file
+
+    group: a larger group that the owner is a part of
+
+    other: all other users on the system
+
+Each character in the 10-character string conveys different information about these permissions. The following table describes the purpose of each character:
+
+Character
+	
+
+Example
+	
+
+Meaning
+
+1st
+	
+
+drwxrwxrwx
+	
+
+file type
+
+    d for directory
+
+    - for a regular file
+
+2nd
+	
+
+drwxrwxrwx
+	
+
+read permissions for the user
+
+    r if the user has read permissions
+
+    - if the user lacks read permissions
+
+3rd
+	
+
+drwxrwxrwx
+	
+
+write permissions for the user
+
+    w if the user has write permissions
+
+    - if the user lacks write permissions
+
+4th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for the user
+
+    x if the user has execute permissions
+
+    - if the user lacks execute permissions
+
+5th
+	
+
+drwxrwxrwx
+	
+
+read permissions for the group
+
+    r if the group has read permissions
+
+    - if the group lacks read permissions
+
+6th
+	
+
+drwxrwxrwx
+	
+
+write permissions for the group
+
+    w if the group has write permissions
+
+    - if the group lacks write permissions
+
+7th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for the group
+
+    x if the group has execute permissions
+
+    - if the group lacks execute permissions
+
+8th
+	
+
+drwxrwxrwx
+	
+
+read permissions for other
+
+    r if the other owner type has read permissions
+
+    - if the other owner type lacks read permissions
+
+9th
+	
+
+drwxrwxrwx
+	
+
+write permissions for other
+
+    w if the other owner type has write permissions
+
+    - if the other owner type lacks write permissions
+
+10th
+	
+
+drwxrwxrwx
+	
+
+execute permissions for other
+
+    x if the other owner type has execute permissions
+
+    - if the other owner type lacks execute permissions
+
+Exploring existing permissions
+
+You can use the ls command to investigate who has permissions on files and directories. Previously, you learned that ls displays the names of files in directories in the current working directory.
+
+There are additional options you can add to the ls command to make your command more specific. Some of these options provide details about permissions. Here are a few important ls options for security analysts:
+
+    ls -a: Displays hidden files. Hidden files start with a period (.) at the beginning.
+
+    ls -l: Displays permissions to files and directories. Also displays other additional information, including owner name, group, file size, and the time of last modification.
+
+    ls -la: Displays permissions to files and directories, including hidden files. This is a combination of the other two options.
+
+Changing permissions
+
+The principle of least privilege is the concept of granting only the minimal access and authorization required to complete a task or function. In other words, users should not have privileges that are beyond what is necessary. Not following the principle of least privilege can create security risks.
+
+The chmod  command can help you manage this authorization. The chmod command changes permissions on files and directories.
+Using chmod
+
+The chmod command requires two arguments. The first argument indicates how to change permissions, and the second argument indicates the file or directory that you want to change permissions for.  For example, the following command would add all permissions to login_sessions.txt:
+
+chmod u+rwx,g+rwx,o+rwx login_sessions.txt
+
+If you wanted to take all the permissions away, you could use
+
+chmod u-rwx,g-rwx,o-rwx login_sessions.txt
+
+Another way to assign these permissions is to use the equals sign (=) in this first argument. Using = with chmod sets, or assigns, the permissions exactly as specified. For example, the following command would set read permissions for login_sessions.txt for user, group, and other:
+
+chmod u=r,g=r,o=r login_sessions.txt
+
+This command overwrites existing permissions. For instance, if the user previously had write permissions, these write permissions are removed after you specify only read permissions with =. 
+
+The following table reviews how each character is used within the first argument of chmod:
+
+Character
+	
+
+Description
+
+u
+	
+
+indicates changes will be made to user permissions
+
+g
+	
+
+indicates changes will be made to group permissions
+
+o
+	
+
+indicates changes will be made to other permissions
+
++
+	
+
+adds permissions to the user, group, or other
+
+-
+	
+
+removes permissions from the user, group, or other
+
+=
+	
+
+assigns permissions for the user, group, or other
+
+Note: When there are permission changes to more than one owner type, commas are needed to separate changes for each owner type. You should not add spaces after those commas.
+The principle of least privilege in action
+
+As a security analyst, you may encounter a situation like this one: There’s a file called bonuses.txt within a compensation directory. The owner of this file is a member of the Human Resources department with a username of hrrep1. It has been decided that hrrep1 needs access to this file. But, since this file contains confidential information, no one else in the hr group needs access.
+
+You run ls -l to check the permissions of files in the compensation directory and discover that the permissions for bonuses.txt are -rw-rw----. The group owner type has read and write permissions that do not align with the principle of least privilege.  
+
+To remedy the situation, you input chmod g-rw bonuses.txt. Now, only the user who needs to access this file to carry out their job responsibilities can access this file.
+Key takeaways
+
+Managing directory and file permissions may be a part of your work as a security analyst. Using ls with the -l and -la options allows you to investigate directory and file permissions. Using chmod allows you to change user permissions and ensure they are aligned with the principle of least privilege.

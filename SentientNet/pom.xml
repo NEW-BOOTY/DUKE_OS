@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright © 2024 Devin B. Royal.
+ * All Rights Reserved.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.sentient</groupId>
+    <artifactId>sentientnet</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>SentientNet Operating Intelligence</name>
+    <description>A Self-Evolving, Blockchain-Secured, Quantum-Tolerant Operating Intelligence</description>
+    <url>https://github.com/new-booty/SentientNet</url>
+
+    <licenses>
+        <license>
+            <name>All Rights Reserved</name>
+            <url>https://github.com/new-booty/SentientNet/blob/main/LICENSE</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>new-booty</id>
+            <name>Devin B. Royal</name>
+            <email>devinroyal@example.com</email>
+            <organization>SentientNet Project</organization>
+            <organizationUrl>https://github.com/new-booty</organizationUrl>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>sentient-launcher</module>
+        <module>sentient-core</module>
+        <module>neuro-shield</module>
+        <module>chain-sentinel</module>
+        <module>edge-mesh</module>
+        <module>io-cortex</module>
+        <module>formal-brain</module>
+        <module>self-architect</module>
+    </modules>
+
+    <properties>
+        <java.version>20</java.version>
+        <log4j.version>2.20.0</log4j.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <release>${java.version}</release>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

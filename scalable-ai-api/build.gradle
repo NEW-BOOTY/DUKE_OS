@@ -1,0 +1,35 @@
+/*
+ * Copyright © 2025 Devin B. Royal.
+ * All Rights Reserved.
+ */
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.myndforge.ai'
+version = '1.0.0'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+mainClassName = 'com.myndforge.ai.ScalableAiApi'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'ai.djl:api:0.26.0'
+    implementation 'ai.djl.tensorflow:tensorflow-engine:0.26.0'
+    implementation 'ai.djl.tensorflow:tensorflow-model-zoo:0.26.0'
+    implementation 'ai.djl.tensorflow:tensorflow-native-auto:2.11.0' // auto-selects native backend
+
+    implementation 'io.javalin:javalin:6.1.3'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
